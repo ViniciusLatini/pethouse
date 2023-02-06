@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
+import Onboarding from './src/components/Onboarding';
 
 function App(): JSX.Element {
   useEffect(() => {
@@ -8,18 +9,38 @@ function App(): JSX.Element {
   });
 
   return (
-    <SafeAreaView>
-      <Text style={styles.text}>Hello World</Text>
-    </SafeAreaView>
+    <>
+      <StatusBar backgroundColor="transparent" translucent={true} />
+      <SafeAreaView style={styles.bg}>
+        {/* <Onboarding
+          title={'Planning Trips?'}
+          description={
+            'Plan your trips anytime anywhere with -out thinking about your pets...'
+          }
+          img={0}
+        /> */}
+        {/* <Onboarding
+          title={'Worrying about pet??'}
+          description={
+            'Plan your trips anytime anywhere without thinking about your pets...'
+          }
+          img={1}
+        /> */}
+        <Onboarding
+          title={'Missing your pet?'}
+          description={
+            'Plan your trips anytime anywhere with -out thinking about your pets...'
+          }
+          img={2}
+        />
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 15,
-    marginVertical: 10,
-    marginHorizontal: 10,
-    fontFamily: 'Ubuntu-Bold',
+  bg: {
+    flex: 1,
   },
 });
 

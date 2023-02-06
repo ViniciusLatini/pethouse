@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 import colors from '../utils/colors';
 import fonts from '../utils/fonts';
+import Icon from 'react-native-vector-icons/Feather';
 
 import Footprint from './Footprint';
 
@@ -38,7 +39,9 @@ function Onboarding({title, description, img}: OnboardingProps) {
           <Footprint screen={img} />
         ) : (
           <TouchableOpacity style={styles.button}>
-            <View style={styles.buttonFill} />
+            <View style={styles.buttonFill}>
+              <Icon name="chevron-right" size={30} color={colors.purple} />
+            </View>
           </TouchableOpacity>
         )}
       </View>
@@ -86,6 +89,8 @@ const styles = StyleSheet.create({
     width: 48,
     backgroundColor: colors.black,
     borderRadius: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
