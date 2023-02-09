@@ -10,6 +10,7 @@ import {
 import colors from '../utils/colors';
 import fonts from '../utils/fonts';
 import Icon from 'react-native-vector-icons/Feather';
+import {useNavigation} from '@react-navigation/native';
 
 import Footprint from './Footprint';
 
@@ -31,6 +32,12 @@ function Onboarding({id, title, description, bgColor}: OnboardingProps) {
     imageActive = require('../assets/Sally-4.png');
   }
 
+  const navigation = useNavigation();
+
+  function handleNext() {
+    navigation.navigate('login');
+  }
+
   return (
     <>
       <View style={{...styles.background, backgroundColor: bgColor, width}}>
@@ -45,7 +52,7 @@ function Onboarding({id, title, description, bgColor}: OnboardingProps) {
           <Footprint screen={id} />
         ) : (
           <View style={styles.container}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity onPress={handleNext} style={styles.button}>
               <View style={styles.buttonFill}>
                 <Icon name="chevron-right" size={30} color={colors.purple} />
               </View>

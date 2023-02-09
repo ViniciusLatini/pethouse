@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {StyleSheet, FlatList, View, useWindowDimensions} from 'react-native';
-
 import Onboarding from '../components/Onboarding';
 import Dot from '../components/Dot';
 import colors from '../utils/colors';

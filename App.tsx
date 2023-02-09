@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
-import Intro from './src/screens/Intro';
+
+import Routes from './src/routes';
 
 function App(): JSX.Element {
   useEffect(() => {
@@ -12,7 +13,7 @@ function App(): JSX.Element {
     <>
       <StatusBar backgroundColor="transparent" translucent={true} />
       <SafeAreaView style={styles.bg}>
-        <Intro />
+        <Routes />
       </SafeAreaView>
     </>
   );
