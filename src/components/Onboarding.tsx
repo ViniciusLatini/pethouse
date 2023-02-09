@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+} from 'react-native';
 import colors from '../utils/colors';
 import fonts from '../utils/fonts';
 import Icon from 'react-native-vector-icons/Feather';
@@ -13,7 +20,9 @@ interface OnboardingProps {
 }
 
 function Onboarding({title, description, img}: OnboardingProps) {
+  const {width} = useWindowDimensions();
   let imageActive, bgColor;
+
   if (img === 0) {
     imageActive = require('../assets/Saly-3.png');
     bgColor = colors.yellow;
@@ -27,7 +36,7 @@ function Onboarding({title, description, img}: OnboardingProps) {
 
   return (
     <>
-      <View style={{...styles.background, backgroundColor: bgColor}}>
+      <View style={{...styles.background, backgroundColor: bgColor, width}}>
         <Image source={imageActive} style={styles.image} />
 
         <View style={styles.content}>
@@ -38,11 +47,13 @@ function Onboarding({title, description, img}: OnboardingProps) {
         {img <= 1 ? (
           <Footprint screen={img} />
         ) : (
-          <TouchableOpacity style={styles.button}>
-            <View style={styles.buttonFill}>
-              <Icon name="chevron-right" size={30} color={colors.purple} />
-            </View>
-          </TouchableOpacity>
+          <View style={styles.container}>
+            <TouchableOpacity style={styles.button}>
+              <View style={styles.buttonFill}>
+                <Icon name="chevron-right" size={30} color={colors.purple} />
+              </View>
+            </TouchableOpacity>
+          </View>
         )}
       </View>
     </>
@@ -74,11 +85,25 @@ const styles = StyleSheet.create({
     fontFamily: fonts.description,
     fontSize: 18,
   },
+  dotsContent: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 3,
+  },
+  dot: {
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: colors.black,
+  },
+  container: {
+    marginBottom: 50,
+    alignItems: 'center',
+  },
   button: {
     height: 58,
     width: 58,
     borderWidth: 3,
-    marginBottom: 50,
+    marginBottom: 40,
     borderRadius: 29,
     borderColor: colors.black,
     alignItems: 'center',
