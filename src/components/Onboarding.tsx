@@ -14,24 +14,21 @@ import Icon from 'react-native-vector-icons/Feather';
 import Footprint from './Footprint';
 
 interface OnboardingProps {
+  id: number;
   title: string;
   description: string;
-  img: number;
+  bgColor: string;
 }
 
-function Onboarding({title, description, img}: OnboardingProps) {
+function Onboarding({id, title, description, bgColor}: OnboardingProps) {
   const {width} = useWindowDimensions();
-  let imageActive, bgColor;
-
-  if (img === 0) {
+  let imageActive;
+  if (id === 0) {
     imageActive = require('../assets/Saly-3.png');
-    bgColor = colors.yellow;
-  } else if (img === 1) {
+  } else if (id === 1) {
     imageActive = require('../assets/Saly-9.png');
-    bgColor = colors.pink;
   } else {
     imageActive = require('../assets/Sally-4.png');
-    bgColor = colors.purple;
   }
 
   return (
@@ -44,8 +41,8 @@ function Onboarding({title, description, img}: OnboardingProps) {
           <Text style={styles.description}>{description}</Text>
         </View>
 
-        {img <= 1 ? (
-          <Footprint screen={img} />
+        {id <= 1 ? (
+          <Footprint screen={id} />
         ) : (
           <View style={styles.container}>
             <TouchableOpacity style={styles.button}>
@@ -84,16 +81,6 @@ const styles = StyleSheet.create({
     marginTop: 25,
     fontFamily: fonts.description,
     fontSize: 18,
-  },
-  dotsContent: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 3,
-  },
-  dot: {
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: colors.black,
   },
   container: {
     marginBottom: 50,
