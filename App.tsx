@@ -11,7 +11,11 @@ function App(): JSX.Element {
 
   return (
     <>
-      <StatusBar backgroundColor="transparent" translucent={true} />
+      <StatusBar
+        backgroundColor="transparent"
+        translucent={true}
+        barStyle={'dark-content'}
+      />
       <SafeAreaView style={styles.bg}>
         <Routes />
       </SafeAreaView>
