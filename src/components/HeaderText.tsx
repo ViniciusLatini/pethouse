@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   content: {
     marginTop: 92,
     gap: 14,
+    marginBottom: 34,
   },
   title: {
     fontSize: 30,
