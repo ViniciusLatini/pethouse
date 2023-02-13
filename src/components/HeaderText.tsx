@@ -2,12 +2,17 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import fonts from '../utils/fonts';
 
-function HeaderText() {
+interface HeaderTextProps {
+  title: string;
+  subtitle: string;
+}
+
+function HeaderText({title, subtitle}: HeaderTextProps) {
   return (
     <View>
       <View style={styles.content}>
-        <Text style={styles.title}>SignIn</Text>
-        <Text style={styles.subtitle}>SignIn to your existing account!</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
     </View>
   );

@@ -23,7 +23,10 @@ function SignIn() {
       contentContainerStyle={{maxHeight: height}}
       showsVerticalScrollIndicator={false}>
       <KeyboardAvoidingView behavior="padding" style={styles.background}>
-        <HeaderText />
+        <HeaderText
+          title="SignIn"
+          subtitle="SignIn to your existing account!"
+        />
         <View style={styles.inputContainer}>
           <Input
             placeholder="Example01@gmail.com"
