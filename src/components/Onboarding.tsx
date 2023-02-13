@@ -35,7 +35,7 @@ function Onboarding({id, title, description, bgColor}: OnboardingProps) {
   const navigation = useNavigation();
 
   function handleNext() {
-    navigation.navigate('login');
+    navigation.navigate('signIn');
   }
 
   return (
