@@ -7,6 +7,7 @@ const Stack = createNativeStackNavigator();
 import Intro from '../screens/Intro';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
+import Info from '../screens/Info';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="intro" component={Intro} />
         <Stack.Screen name="signIn" component={SignIn} />
         <Stack.Screen name="signUp" component={SignUp} />
+        <Stack.Screen name="info" component={Info} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -24,7 +24,9 @@ function SignUp() {
     navigation.goBack();
   }
 
-  function handleInfo() {}
+  function handleInfo() {
+    navigation.navigate('info');
+  }
 
   return (
     <ScrollView

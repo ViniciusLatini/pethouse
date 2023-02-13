@@ -12,9 +12,9 @@ interface FormBtn extends TouchableOpacityProps {
   text: string;
 }
 
-function FormBtn({text}: FormBtn) {
+function FormBtn({text, ...props}: FormBtn) {
   return (
-    <TouchableOpacity style={styles.buttonContainer}>
+    <TouchableOpacity style={styles.buttonContainer} {...props}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );
