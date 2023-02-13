@@ -1,12 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+} from 'react-native';
 import colors from '../utils/colors';
 import fonts from '../utils/fonts';
 
-function FormBtn() {
+interface FormBtn extends TouchableOpacityProps {
+  text: string;
+}
+
+function FormBtn({text}: FormBtn) {
   return (
     <TouchableOpacity style={styles.buttonContainer}>
-      <Text style={styles.buttonText}>SingIn</Text>
+      <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );
 }

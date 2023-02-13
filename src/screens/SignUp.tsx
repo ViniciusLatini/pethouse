@@ -8,30 +8,30 @@ import {
   ScrollView,
   useWindowDimensions,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import HeaderText from '../components/HeaderText';
 import Input from '../components/Input';
 import fonts from '../utils/fonts';
 import colors from '../utils/colors';
 import FormBtn from '../components/FormBtn';
-import {useNavigation} from '@react-navigation/native';
 
-function SignIn() {
+function SignUp() {
   const {height} = useWindowDimensions();
   const navigation = useNavigation();
 
-  function handleSignUp() {
-    navigation.navigate('signUp');
+  function handleSignIn() {
+    navigation.goBack();
   }
+
+  function handleInfo() {}
+
   return (
     <ScrollView
       contentContainerStyle={{maxHeight: height}}
       showsVerticalScrollIndicator={false}>
       <KeyboardAvoidingView behavior="padding" style={styles.background}>
-        <HeaderText
-          title="SignIn"
-          subtitle="SignIn to your existing account!"
-        />
+        <HeaderText title="SignUp" subtitle="create an account!" />
         <View style={styles.inputContainer}>
           <Input
             placeholder="Example01@gmail.com"
@@ -39,14 +39,19 @@ function SignIn() {
           />
           <Input placeholder="Example#123" label="Enter a password" />
         </View>
-        <Text style={styles.forgetPass}>Forget Password?</Text>
+        <View style={styles.rememberContent}>
+          <TouchableOpacity style={styles.rememberButton}>
+            <View style={styles.rememberButtonFill} />
+          </TouchableOpacity>
+          <Text style={styles.rememberText}>Remember-Me</Text>
+        </View>
 
-        <FormBtn text="SignIn" />
+        <FormBtn onPress={handleInfo} text="SignUp" />
 
         <View style={styles.signupContainer}>
-          <Text style={styles.signupText}>Don’t have an account? </Text>
-          <TouchableOpacity onPress={handleSignUp}>
-            <Text style={styles.signupButtonText}>SignUp</Text>
+          <Text style={styles.signupText}>Already have an account? </Text>
+          <TouchableOpacity onPress={handleSignIn}>
+            <Text style={styles.signupButtonText}>SignIn</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
@@ -61,12 +66,32 @@ const styles = StyleSheet.create({
   inputContainer: {
     gap: 20,
   },
-  forgetPass: {
-    textAlign: 'right',
-    fontFamily: fonts.text,
-    color: colors.gray,
-    marginTop: 10,
+  rememberContent: {
+    marginTop: 17,
     marginBottom: 50,
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+  },
+  rememberButton: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.purple,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  rememberButtonFill: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: colors.purple,
+  },
+  rememberText: {
+    fontFamily: fonts.text,
+    fontSize: 14,
+    color: colors.gray,
   },
   signupContainer: {
     alignSelf: 'center',
@@ -85,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignIn;
+export default SignUp;
