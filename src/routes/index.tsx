@@ -8,6 +8,7 @@ import Intro from '../screens/Intro';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import Info from '../screens/Info';
+import TabsRoutes from './tabsRoutes';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Stack.Screen name="signIn" component={SignIn} />
         <Stack.Screen name="signUp" component={SignUp} />
         <Stack.Screen name="info" component={Info} />
+        <Stack.Screen name="home" component={TabsRoutes} />
       </Stack.Navigator>
     </NavigationContainer>
   );
